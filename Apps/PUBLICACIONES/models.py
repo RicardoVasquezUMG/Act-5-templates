@@ -3,15 +3,15 @@
 
 from django.db import models
 
+from Apps.ESTUDIANTES.models import Estudiante
+from Apps.ADMINISTRADORES.models import Administrador
+
 class Publicacion(models.Model):
 	titulo = models.CharField(max_length=200)
-	autor = models.CharField(max_length=100)
+	autor = models.ForeignKey(Estudiante, on_delete=models.CASCADE)
 	fecha = models.DateField()
-	categoria = models.CharField(max_length=50)
-	contenido = models.TextField()
+	administrador = models.ForeignKey(Administrador, on_delete=models.CASCADE)
 	estado = models.CharField(max_length=20)
-	imagen = models.URLField(blank=True)
-	etiquetas = models.CharField(max_length=100, blank=True)
 
 	def __str__(self):
 		return self.titulo

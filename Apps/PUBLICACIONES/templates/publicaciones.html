@@ -9,11 +9,8 @@
 			<th>Título</th>
 			<th>Autor</th>
 			<th>Fecha</th>
-			<th>Categoría</th>
+			<th>Administrador</th>
 			<th>Estado</th>
-			<th>Imagen</th>
-			<th>Etiquetas</th>
-			<th>Contenido</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -23,18 +20,11 @@
 			<td>{{ publicacion.titulo }}</td>
 			<td>{{ publicacion.autor }}</td>
 			<td>{{ publicacion.fecha }}</td>
-			<td>{{ publicacion.categoria }}</td>
+			<td>{{ publicacion.administrador }}</td>
 			<td>{{ publicacion.estado }}</td>
-			<td>
-				{% if publicacion.imagen %}
-					<img src="{{ publicacion.imagen }}" alt="imagen" style="max-width:80px;max-height:80px;" />
-				{% else %}-{% endif %}
-			</td>
-			<td>{{ publicacion.etiquetas }}</td>
-			<td>{{ publicacion.contenido|truncatewords:10 }}</td>
 		</tr>
 		{% empty %}
-		<tr><td colspan="9">No hay publicaciones registradas.</td></tr>
+		<tr><td colspan="6">No hay publicaciones registradas.</td></tr>
 		{% endfor %}
 	</tbody>
 </table>
