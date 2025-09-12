@@ -17,21 +17,21 @@
         </tr>
     </thead>
     <tbody>
-        <tr><td>1</td><td>Laura</td><td>Gómez</td><td>45</td><td>Profesora</td><td>Matemáticas</td><td>laura.gomez@umg.edu</td><td>555-1001</td><td>Guatemala</td></tr>
-        <tr><td>2</td><td>José</td><td>Martínez</td><td>50</td><td>Administrador</td><td>Finanzas</td><td>jose.martinez@umg.edu</td><td>555-1002</td><td>Mixco</td></tr>
-        <tr><td>3</td><td>María</td><td>Ruiz</td><td>38</td><td>Profesora</td><td>Lenguaje</td><td>maria.ruiz@umg.edu</td><td>555-1003</td><td>Antigua</td></tr>
-        <tr><td>4</td><td>Carlos</td><td>Hernández</td><td>42</td><td>Administrador</td><td>Recursos Humanos</td><td>carlos.h@umg.edu</td><td>555-1004</td><td>Escuintla</td></tr>
-        <tr><td>5</td><td>Lucía</td><td>Morales</td><td>35</td><td>Profesora</td><td>Historia</td><td>lucia.m@umg.edu</td><td>555-1005</td><td>Villa Nueva</td></tr>
-        <tr><td>6</td><td>Andrés</td><td>Castillo</td><td>47</td><td>Administrador</td><td>TI</td><td>andres.castillo@umg.edu</td><td>555-1006</td><td>Jalapa</td></tr>
-        <tr><td>7</td><td>Patricia</td><td>Flores</td><td>39</td><td>Profesora</td><td>Biología</td><td>patricia.f@umg.edu</td><td>555-1007</td><td>Chimaltenango</td></tr>
-        <tr><td>8</td><td>Fernando</td><td>Reyes</td><td>44</td><td>Administrador</td><td>Infraestructura</td><td>fernando.r@umg.edu</td><td>555-1008</td><td>Petén</td></tr>
-        <tr><td>9</td><td>Gabriela</td><td>Jiménez</td><td>36</td><td>Profesora</td><td>Inglés</td><td>gabriela.j@umg.edu</td><td>555-1009</td><td>Zacapa</td></tr>
-        <tr><td>10</td><td>Ricardo</td><td>Vásquez</td><td>41</td><td>Administrador</td><td>Biblioteca</td><td>ricardo.v@umg.edu</td><td>555-1010</td><td>Guatemala</td></tr>
-        <tr><td>11</td><td>Silvia</td><td>Navarro</td><td>40</td><td>Profesora</td><td>Física</td><td>silvia.n@umg.edu</td><td>555-1011</td><td>Mixco</td></tr>
-        <tr><td>12</td><td>Jorge</td><td>Salazar</td><td>48</td><td>Administrador</td><td>Seguridad</td><td>jorge.s@umg.edu</td><td>555-1012</td><td>Antigua</td></tr>
-        <tr><td>13</td><td>Daniela</td><td>Aguilar</td><td>37</td><td>Profesora</td><td>Arte</td><td>daniela.a@umg.edu</td><td>555-1013</td><td>Escuintla</td></tr>
-        <tr><td>14</td><td>Héctor</td><td>Mejía</td><td>46</td><td>Administrador</td><td>Logística</td><td>hector.m@umg.edu</td><td>555-1014</td><td>Villa Nueva</td></tr>
-        <tr><td>15</td><td>Verónica</td><td>Barrios</td><td>43</td><td>Profesora</td><td>Psicología</td><td>veronica.b@umg.edu</td><td>555-1015</td><td>Jalapa</td></tr>
+        {% for administrador in administradores %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ administrador.nombre }}</td>
+            <td>{{ administrador.apellido }}</td>
+            <td>{{ administrador.edad }}</td>
+            <td>{{ administrador.cargo }}</td>
+            <td>{{ administrador.departamento }}</td>
+            <td>{{ administrador.correo }}</td>
+            <td>{{ administrador.telefono }}</td>
+            <td>{{ administrador.ciudad }}</td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="9">No hay administradores registrados.</td></tr>
+        {% endfor %}
     </tbody>
 </table>
 

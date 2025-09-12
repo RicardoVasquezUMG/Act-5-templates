@@ -22,5 +22,6 @@ urlpatterns = [
     path('home/', include('Apps.HOME.urls','home')),
     path('estudiantes/', include('Apps.ESTUDIANTES.urls','student')),
     path('administradores/', include('Apps.ADMINISTRADORES.urls','adminis')),
+    path('publicaciones/', include('Apps.PUBLICACIONES.urls','publicaciones')),
     path('about/', include('Apps.ABOUT.urls','about')),
 ]

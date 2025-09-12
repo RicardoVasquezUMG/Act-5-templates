@@ -16,22 +16,21 @@
             </tr>
         </thead>
         <tbody>
-            <tr><td>1</td><td>Juan</td><td>Pérez</td><td>20</td><td>5to</td><td>juanp@example.com</td><td>555-1234</td><td>Guatemala</td></tr>
-            <tr><td>2</td><td>María</td><td>López</td><td>21</td><td>5to</td><td>marial@example.com</td><td>555-5678</td><td>Mixco</td></tr>
-            <tr><td>3</td><td>Carlos</td><td>Ramírez</td><td>22</td><td>6to</td><td>carlosr@example.com</td><td>555-8765</td><td>Villa Nueva</td></tr>
-            <tr><td>4</td><td>Ana</td><td>Martínez</td><td>19</td><td>4to</td><td>anam@example.com</td><td>555-4321</td><td>Antigua</td></tr>
-            <tr><td>5</td><td>José</td><td>Gómez</td><td>23</td><td>6to</td><td>joseg@example.com</td><td>555-1111</td><td>Escuintla</td></tr>
-            <tr><td>6</td><td>Laura</td><td>Hernández</td><td>20</td><td>5to</td><td>laurah@example.com</td><td>555-2222</td><td>Quetzaltenango</td></tr>
-            <tr><td>7</td><td>David</td><td>Castillo</td><td>21</td><td>5to</td><td>davidc@example.com</td><td>555-3333</td><td>Jalapa</td></tr>
-            <tr><td>8</td><td>Sofía</td><td>Reyes</td><td>22</td><td>6to</td><td>sofiar@example.com</td><td>555-4444</td><td>Chimaltenango</td></tr>
-            <tr><td>9</td><td>Andrés</td><td>Morales</td><td>20</td><td>5to</td><td>andresm@example.com</td><td>555-5555</td><td>Petén</td></tr>
-            <tr><td>10</td><td>Lucía</td><td>Flores</td><td>19</td><td>4to</td><td>luciaf@example.com</td><td>555-6666</td><td>Zacapa</td></tr>
-            <tr><td>11</td><td>Mario</td><td>Ortiz</td><td>21</td><td>5to</td><td>marioo@example.com</td><td>555-7777</td><td>Guatemala</td></tr>
-            <tr><td>12</td><td>Valeria</td><td>Jiménez</td><td>22</td><td>6to</td><td>valeriaj@example.com</td><td>555-8888</td><td>Mixco</td></tr>
-            <tr><td>13</td><td>Fernando</td><td>Ruiz</td><td>23</td><td>6to</td><td>fernandor@example.com</td><td>555-9999</td><td>Villa Nueva</td></tr>
-            <tr><td>14</td><td>Camila</td><td>Torres</td><td>20</td><td>5to</td><td>camilat@example.com</td><td>555-1010</td><td>Antigua</td></tr>
-            <tr><td>15</td><td>Diego</td><td>Vásquez</td><td>21</td><td>5to</td><td>diegov@example.com</td><td>555-2020</td><td>Escuintla</td></tr>
-        </tbody>  
+            {% for estudiante in estudiantes %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ estudiante.nombre }}</td>
+                <td>{{ estudiante.apellido }}</td>
+                <td>{{ estudiante.edad|default:"-" }}</td>
+                <td>{{ estudiante.grado|default:"-" }}</td>
+                <td>{{ estudiante.email }}</td>
+                <td>{{ estudiante.telefono|default:"-" }}</td>
+                <td>{{ estudiante.ciudad|default:"-" }}</td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="8">No hay estudiantes registrados.</td></tr>
+            {% endfor %}
+        </tbody>
     </table> 
 {% endblock %}
 

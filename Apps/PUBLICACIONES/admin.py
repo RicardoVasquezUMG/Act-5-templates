@@ -2,6 +2,6 @@
 # Register your models here.
 
 from django.contrib import admin
-from .models import Estudiante
+from .models import Publicacion
 
-admin.site.register(Estudiante)
+admin.site.register(Publicacion)

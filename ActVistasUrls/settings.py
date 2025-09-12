@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'Apps.HOME',
     'Apps.ESTUDIANTES',
     'Apps.ADMINISTRADORES',
+    'Apps.PUBLICACIONES',
     'Apps.ABOUT',
 ]
 
@@ -79,11 +80,14 @@ WSGI_APPLICATION = 'ActVistasUrls.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'base_datos_django',
+        'USER': 'root',
+        'PASSWORD': 'admin',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
