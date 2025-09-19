@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 
 {% block contenido %}
+    <h2> Inscribir Estudiante </h2>
+    <a href="{% url 'student:crear' %}" class="btn btn-primary mb-3">Agregar Estudiante</a>
+    <br><br>
     <h1>Lista de Alumnos</h1>
      <table class="table table-bordered table-striped">
         <thead>

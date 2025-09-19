@@ -9,7 +9,7 @@ class Estudiante(models.Model):
     email = models.EmailField(unique=True)
     telefono = models.CharField(max_length=20)
     ciudad = models.CharField(max_length=50)
-    fecha_nacimiento = models.DateField()
+    fecha_nacimiento = models.DateField(null=True, blank=True)
 
     def __str__(self):
         return f"{self.nombre} {self.apellido}"
