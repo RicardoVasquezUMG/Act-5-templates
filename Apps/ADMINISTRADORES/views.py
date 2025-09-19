@@ -1,10 +1,7 @@
-from django.views.generic import TemplateView
-
-# Create your views here.
-class AdminView(TemplateView):
-    template_name = 'administradores.html'
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, CreateView
+from django.urls import reverse_lazy
 from .models import Administrador
+from .forms import AdministradorForm
 
 class AdminView(TemplateView):
     template_name = 'administradores.html'
@@ -13,3 +10,9 @@ class AdminView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['administradores'] = Administrador.objects.all()
         return context
+
+class CrearAdministradorView(CreateView):
+    model = Administrador
+    template_name = 'crear_administrador.html'
+    form_class = AdministradorForm
+    success_url = reverse_lazy('adminis:adminapp')

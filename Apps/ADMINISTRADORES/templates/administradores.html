@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 
 {% block contenido %}
-<h1>Lista de administradores</h1>
+<h2> Inscribir Administrador </h2>
+<a href="{% url 'adminis:crear' %}" class="btn btn-primary mb-3">Agregar Administrador</a>
+<br><br>
+<h1>Lista de Administradores</h1>
 <table class="table table-bordered table-striped">
     <thead>
         <tr>
