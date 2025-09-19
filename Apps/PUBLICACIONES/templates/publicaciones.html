@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 
 {% block contenido %}
+<h2> Crear Publicación </h2>
+<a href="{% url 'publicaciones:crear' %}" class="btn btn-primary mb-3">Agregar Publicación</a>
+<br><br>
 <h1>Lista de Publicaciones</h1>
 <table class="table table-bordered table-striped">
 	<thead>
