@@ -1,4 +1,4 @@
-from django.views.generic import TemplateView, CreateView
+from django.views.generic import TemplateView, CreateView, UpdateView
 from django.urls import reverse_lazy
 from .models import Administrador
 from .forms import AdministradorForm
@@ -14,5 +14,11 @@ class AdminView(TemplateView):
 class CrearAdministradorView(CreateView):
     model = Administrador
     template_name = 'crear_administrador.html'
+    form_class = AdministradorForm
+    success_url = reverse_lazy('adminis:adminapp')
+
+class EditarAdministradorView(UpdateView):
+    model = Administrador
+    template_name = 'editar_administrador.html'
     form_class = AdministradorForm
     success_url = reverse_lazy('adminis:adminapp')

@@ -1,4 +1,4 @@
-from django.views.generic import TemplateView, CreateView
+from django.views.generic import TemplateView, CreateView, UpdateView
 from django.urls import reverse_lazy
 from .models import Publicacion
 from .forms import PublicacionForm
@@ -16,3 +16,10 @@ class CrearPublicacionView(CreateView):
     template_name = 'crear_publicacion.html'
     form_class = PublicacionForm
     success_url = reverse_lazy('publicaciones:publiapp')
+
+
+class EditarPublicacionView(UpdateView):
+    model = Publicacion
+    template_name = 'editar_publicacion.html'
+    form_class = PublicacionForm
+    success_url = reverse_lazy('publicaciones:publiapp')    
