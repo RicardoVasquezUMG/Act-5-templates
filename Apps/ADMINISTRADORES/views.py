@@ -1,4 +1,4 @@
-from django.views.generic import TemplateView, CreateView, UpdateView
+from django.views.generic import TemplateView, CreateView, UpdateView, DetailView
 from django.urls import reverse_lazy
 from .models import Administrador
 from .forms import AdministradorForm
@@ -22,3 +22,9 @@ class EditarAdministradorView(UpdateView):
     template_name = 'editar_administrador.html'
     form_class = AdministradorForm
     success_url = reverse_lazy('adminis:adminapp')
+
+
+class DetalleAdministradorView(DetailView):
+     model = Administrador
+     template_name = 'detalle_administradores.html' 
+     context_object_name = 'administrador'
