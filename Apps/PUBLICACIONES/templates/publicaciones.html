@@ -28,6 +28,8 @@
 			<td>{{ publicacion.estado }}</td>
 			<td>
 				<a href="{% url 'publicaciones:editar' publicacion.id %}" class="btn btn-sm btn-warning">Editar</a>
+				<a href="{% url 'publicaciones:detalle' publicacion.id %}" class="btn btn-sm btn-info">Ver</a>
+			</td>
 		</tr>
 		{% empty %}
 		<tr><td colspan="6">No hay publicaciones registradas.</td></tr>
