@@ -82,8 +82,16 @@
                   
                 </div>
                 <div class="dropdown-footer">
-                  <a href="#" class="btn btn-primary w-100 mb-2">Iniciar Sesión</a>
-                  <a href="{% url 'home:registro' %}" class="btn btn-outline-primary w-100">Registro</a>
+                  {% if user.is_authenticated %}
+                    <form action="{% url 'home:logout' %}" method="post" style="display: inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-outline-danger">Cerrar Sesión</button>
+                    </form>
+                  {% else %}
+                    <a href={% url 'home:login' %} class="btn btn-primary w-100 mb-2">Iniciar Sesión</a>
+                    <a href={% url 'home:registro' %} class="btn btn-outline-primary w-100">Registro</a>
+                  {% endif %}
+
                 </div>
               </div>
             </div>
@@ -115,9 +123,11 @@
         <nav id="navmenu" class="navmenu">
           <ul>
             <li><a href={% url 'home:homeapp' %}>Home</a></li>
+            {% if user.is_authenticated %}
             <li><a href={% url 'student:Estudiantesapp' %}>Estudiantes</a></li>
             <li><a href={% url 'adminis:adminapp' %}>Administradores</a></li>
             <li><a href={% url 'publicaciones:publiapp' %}>Publicaciones</a></li>
+            {% endif %}
             <li><a href={% url 'about:aboutapp' %}>Acerca de</a></li>
           </ul>
         </nav>

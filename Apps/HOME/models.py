@@ -16,5 +16,6 @@ def crear_usuario(sender, instance, created, **kwargs):
         Usuario.objects.create(perfil=instance) 
 
 @receiver(post_save, sender=User)
-def guardar_usuario(sender, instance, created, **kwargs):
-    instance.usuario.save() 
+def guardar_usuario(sender, instance, **kwargs):
+    if hasattr(instance, 'usuario'):
+        instance.usuario.save()
