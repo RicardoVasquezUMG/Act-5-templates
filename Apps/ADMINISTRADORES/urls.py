@@ -10,5 +10,6 @@ urlpatterns = [
     path('crear/', CrearAdministradorView.as_view(), name='crear'),
     path('editar/<int:pk>/', EditarAdministradorView.as_view(), name='editar'),
     path('detalle/<int:pk>/', views.DetalleAdministradorView.as_view(), name='detalle'),
+    path('listado/', views.ListadoAdministradoresView.as_view(), name='listado'),
 ]
 

@@ -30,3 +30,15 @@ class DetallePublicacionView(DetailView):
      model = Publicacion
      template_name = 'detalle_publicaciones.html' 
      context_object_name = 'publicacion'  
+
+class ListadoPublicacionView(TemplateView):
+    template_name = 'listado_publicaciones.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        vNombre=self.request.GET.get('titulo')
+        if vNombre:
+            context['publicaciones'] = Publicacion.objects.filter(titulo__icontains=vNombre)
+        else:
+            context['publicaciones'] = Publicacion.objects.all()
+        return context

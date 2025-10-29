@@ -29,3 +29,15 @@ class DetalleEstudianteView(DetailView):
      model = Estudiante
      template_name = 'detalle_estudiantes.html' 
      context_object_name = 'estudiante'     
+
+class ListadoEstudiantesView(TemplateView):
+    template_name = 'listado_estudiantes.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        vNombre=self.request.GET.get('nombre')
+        if vNombre:
+            context['estudiantes'] = Estudiante.objects.filter(nombre__icontains=vNombre)
+        else:
+            context['estudiantes'] = Estudiante.objects.all()
+        return context

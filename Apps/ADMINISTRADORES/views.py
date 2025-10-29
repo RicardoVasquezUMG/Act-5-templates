@@ -28,3 +28,15 @@ class DetalleAdministradorView(DetailView):
      model = Administrador
      template_name = 'detalle_administradores.html' 
      context_object_name = 'administrador'
+
+class ListadoAdministradoresView(TemplateView):
+    template_name = 'listado_administradores.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        vNombre=self.request.GET.get('nombre')
+        if vNombre:
+            context['administradores'] = Administrador.objects.filter(nombre__icontains=vNombre)
+        else:
+            context['administradores'] = Administrador.objects.all()
+        return context

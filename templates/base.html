@@ -51,17 +51,7 @@
           <a href={% url 'home:homeapp' %} class="logo d-flex align-items-center">
             <!-- quitar comentario si deseas usar un logo de imagen -->
             <h1 class="sitename">UMG Web</h1>
-        </a>
-
-          <!-- Search -->
-          <form class="search-form desktop-search-form">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search for products">
-              <button class="btn" type="submit">
-                <i class="bi bi-search"></i>
-              </button>
-            </div>
-          </form>
+          </a>
 
           <!-- Actions -->
           <div class="header-actions d-flex align-items-center justify-content-end">
@@ -96,19 +86,7 @@
               </div>
             </div>
 
-            <!-- Wishlist -->
-            <a href="account.html" class="header-action-btn d-none d-md-block">
-              <i class="bi bi-heart"></i>
-              <span class="badge">0</span>
-            </a>
-
-            <!-- Cart -->
-            <a href="cart.html" class="header-action-btn">
-              <i class="bi bi-cart3"></i>
-              <span class="badge">3</span>
-            </a>
-            
-            <img src="{% static 'Logo UMG.jpg' %}" width="75px"> 
+            <img src="{% static 'Logo UMG.jpg' %}" width="75px">
             <!-- Mobile Navigation Toggle -->
             <i class="mobile-nav-toggle d-xl-none bi bi-list me-0"></i>
 
@@ -124,27 +102,16 @@
           <ul>
             <li><a href={% url 'home:homeapp' %}>Home</a></li>
             {% if user.is_authenticated %}
-            <li><a href={% url 'student:Estudiantesapp' %}>Estudiantes</a></li>
-            <li><a href={% url 'adminis:adminapp' %}>Administradores</a></li>
-            <li><a href={% url 'publicaciones:publiapp' %}>Publicaciones</a></li>
+            <li><a href={% url 'student:Estudiantesapp' %}> CRUD Estudiantes</a></li>
+            <li><a href={% url 'adminis:adminapp' %}>CRUD Administradores</a></li>
+            <li><a href={% url 'publicaciones:publiapp' %}>CRUD Publicaciones</a></li>
             {% endif %}
+            <li><a href={% url 'student:listado' %}>Estudiante</a></li>
+            <li><a href={% url 'adminis:listado' %}>Administrador</a></li>
+            <li><a href={% url 'publicaciones:listado' %}>Publicaciones</a></li>
             <li><a href={% url 'about:aboutapp' %}>Acerca de</a></li>
           </ul>
         </nav>
-      </div>
-    </div>
-
-    <!-- Mobile Search Form -->
-    <div class="collapse" id="mobileSearch">
-      <div class="container">
-        <form class="search-form">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for products">
-            <button class="btn" type="submit">
-              <i class="bi bi-search"></i>
-            </button>
-          </div>
-        </form>
       </div>
     </div>
 
